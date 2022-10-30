@@ -6,7 +6,8 @@ An Arc (The Browser Company) Boost for Hacker News
 🌞 Light theme
 
 ## Dark theme
-<img width="1531" alt="Screen Shot 2022-10-30 at 4 01 47 PM" src="https://user-images.githubusercontent.com/3496059/198906074-28a08638-27e2-4c97-b43d-30bdecfa3eeb.png">
+<img width="1531" alt="Screen Shot 2022-10-30 at 4 09 30 PM" src="https://user-images.githubusercontent.com/3496059/198906404-e67e3e8a-5810-4aa2-8b33-dc3d24c1f485.png">
+
 
 ## Light theme
 
