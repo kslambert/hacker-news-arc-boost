@@ -150,7 +150,14 @@ tr .athing {
 
 .votearrow:hover {
   border-color: transparent transparent var(--primary-color) transparent !important;
+}
+
+.votearrow:not(.rotate180):hover {
   transform: scale(1.2) !important;
+}
+
+.votearrow.rotate180:hover {
+  transform: scale(1.2) rotate(180deg) !important;
 }
 
 .title {
