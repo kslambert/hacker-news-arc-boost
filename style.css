@@ -142,7 +142,6 @@ tr .athing {
   border-style: solid !important;
   border-width: 0 5px 9px 5px !important;
   border-color: transparent transparent var(--primary-color) transparent !important;
-  transform: rotate(0deg) !important;
   background-image: none !important;
   margin: 2px 12px 2px 6px !important;
   top: 7px !important;
@@ -153,7 +152,14 @@ tr .athing {
 
 .votearrow:hover {
   border-color: transparent transparent var(--primary-color) transparent !important;
+}
+
+.votearrow:not(.rotate180):hover {
   transform: scale(1.2) !important;
+}
+
+.votearrow.rotate180:hover {
+  transform: scale(1.2) rotate(180deg) !important;
 }
 
 .title {
