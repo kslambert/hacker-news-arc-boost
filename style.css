@@ -1,14 +1,45 @@
 /* Original source: Kyle Lambert https://github.com/kslambert/hacker-news-arc-boost */
 
 :root {
-  --default-font: "SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  --secondary-font: "Press Start 2P", "IBM Plex Mono", "SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  --primary-color: rgb(158, 129, 238);
-  --content-lower: rgb(113, 124, 153);
+  --default-font: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --secondary-font: "Press Start 2P", "IBM Plex Mono", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --primary-color: rgb(228, 104, 21);
+  --content-lower: rgb(141, 127, 127);
+  --body-background: rgb(255, 253, 246);
+  --input-background: var(--primary-color);
+  --td-color: rgb(130, 130, 130);
+  --transparent-bg: rgba(255, 229, 209, 0.5);
+  --transparent-border: rgba(245, 201, 120, 0.1);
+  --box-shadow: rgba(238, 200, 129, 0.2);
+  --subtext-color: rgb(180, 188, 208);
+  --title-color: rgb(124, 109, 109);
+  --title-hover-color: rgb(124, 109, 109);
+  --title-a-color: rgb(124, 109, 109);
+  --page-top-color: var(--primary-color);
 }
 
-body {  
-  background: rgb(0, 2, 18);
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --default-font: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --secondary-font: "Press Start 2P", "IBM Plex Mono", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --primary-color: rgb(158, 129, 238);
+    --content-lower: rgb(113, 124, 153);
+    --body-background: rgb(0, 2, 18);
+    --input-background: rgb(132, 0, 255);
+    --td-color: rgb(130, 130, 130);
+    --transparent-bg: rgba(174, 167, 235, 0.13);
+    --transparent-border: rgba(255, 255, 255, 0.1);
+    --box-shadow: rgba(158, 129, 238, 0.2);
+    --subtext-color: rgb(180, 188, 208);
+    --title-color: rgb(236, 236, 236);
+    --title-hover-color: rgba(205, 213, 233, .95);
+    --title-a-color: rgb(205, 213, 233);
+    --page-top-color: var(--content-lower);
+  }
+}
+
+body {
+  background: var(--body-background);
   color: var(--primary-color);
   font-family: var(--default-font) !important;
 }
@@ -28,8 +59,8 @@ input {
   font-size: 1rem !important;
 }
 
-input[type = submit] {
-  background-color: rgb(132, 0, 255);
+input[type=submit] {
+  background-color: var(--input-background);
   color: #fff;
   font-family: var(--default-font);
   font-size: 1.2rem;
@@ -39,7 +70,7 @@ input[type = submit] {
   text-transform: capitalize;
 }
 
-input[type = submit]:hover {
+input[type=submit]:hover {
   cursor: pointer;
 }
 
@@ -47,11 +78,11 @@ td {
   color: var(--primary-color) !important;
   font-family: var(--default-font) !important;
   font-size: 10pt;
-  color: #828282;
+  color: var(--td-color);
 }
 
 #hnmain {
-  background: rgb(0, 2, 18);
+  background: var(--body-background);
 }
 
 .pagetop {
@@ -62,20 +93,28 @@ td {
 }
 
 .pagetop a:link {
-  color: var(--content-lower);
-  text-transform: capitalize !important;
+  color: var(--page-top-color);
   padding-right: 10px;
 }
 
 .pagetop a:visited {
-  color: var(--content-lower) !important;
+  color: var(--page-top-color) !important;
 }
 
-.pagetop .hnname a:link, .pagetop .hnname a:visited {
+.toptext {
+  font-family: var(--default-font) !important;
+  font-size: 1.1rem !important;
+  color: var(--content-lower) !important;
+  line-height: auto !important;
+}
+
+
+.pagetop .hnname a:link,
+.pagetop .hnname a:visited {
   color: var(--primary-color) !important;
   text-transform: uppercase !important;
   letter-spacing: .75px !important;
-  font-size: .9rem;
+  font-size: .95rem;
   line-height: .9rem;
   font-weight: 6800;
   font-family: var(--secondary-font);
@@ -85,30 +124,30 @@ td {
 }
 
 #hnmain tbody:first-child tr:first-child td:first-child:not(.title) {
-  background: rgba(174, 167, 235, 0.13);
+  background: var(--transparent-bg);
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.1);
-  padding: 16px;
+  border-color: var(--transparent-border);
+  /* padding: 16px; */
   display: inline-block;
   margin: 20px 0px 10px;
   width: 100%;
   border-radius: 8px;
   box-sizing: border-box;
-  box-shadow: 0px 2px 20px rgba(158, 129, 238,0.2);
-  -webkit-box-shadow: 0px 2px 20px rgba(158, 129, 2385,0.2);
+  box-shadow: 0px 2px 20px var(--box-shadow);
+  -webkit-box-shadow: 0px 2px 20px var(--box-shadow);
 }
 
 /* hide logo */
-#hnmain tbody:first-child tr:first-child td:first-child table tbody tr td:first-child {
+#hnmain tbody:first-child tr:first-child td:first-child table tbody tr td:first-child:has(a) {
   display: none;
   width: 0;
 }
 
-.subtext {  
+.subtext {
   font-family: var(--default-font) !important;
   font-size: 1rem !important;
-  color: rgb(180, 188, 208) !important;
+  color: var(--subtext-color) !important;
   display: table-cell;
 }
 
@@ -122,8 +161,8 @@ tr .athing {
 }
 
 .votelinks {
-  background: rgba(174, 167, 235, 0.13);
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: var(--transparent-border);
+  border: 1px solid var(--transparent-bg) !important;
   border-radius: 4px;
   width: 20px !important;
   height: 32px !important;
@@ -142,7 +181,6 @@ tr .athing {
   border-style: solid !important;
   border-width: 0 5px 9px 5px !important;
   border-color: transparent transparent var(--primary-color) transparent !important;
-  transform: rotate(0deg) !important;
   background-image: none !important;
   margin: 2px 12px 2px 6px !important;
   top: 7px !important;
@@ -153,14 +191,21 @@ tr .athing {
 
 .votearrow:hover {
   border-color: transparent transparent var(--primary-color) transparent !important;
+}
+
+.votearrow:not(.rotate180):hover {
   transform: scale(1.2) !important;
+}
+
+.votearrow.rotate180:hover {
+  transform: scale(1.2) rotate(180deg) !important;
 }
 
 .title {
   font-family: var(--default-font) !important;
   font-size: 1.2rem !important;
   font-weight: 600;
-  color: rgb(236, 236, 236) !important;
+  color: var(--title-color) !important;
   overflow: hidden;
   margin-bottom: 30px !important;
   padding: 1px;
@@ -172,13 +217,13 @@ tr .athing {
 
 .titleline a:hover {
   text-decoration: underline;
-  color: rgb(205, 213, 233, .95) !important;
+  color: var(--title-hover-color) !important;
 }
 
 .title a {
-  color: rgb(205, 213, 233) !important;
+  color: var(--title-a-color) !important;
   text-decoration: none;
-} 
+}
 
 .title a:visited {
   color: var(--primary-color) !important;
@@ -195,11 +240,13 @@ tr .athing {
   font-size: .9rem !important;
 }
 
-.subtext a:link, .subtext a:visited {
+.subtext a:link,
+.subtext a:visited {
   color: var(--content-lower) !important;
 }
 
-.sitebit.comhead a, .sitebit.comhead {
+.sitebit.comhead a,
+.sitebit.comhead {
   font-size: 1.2rem !important;
   font-weight: 300;
   font-family: var(--default-font) !important;
@@ -218,7 +265,8 @@ tr .athing {
   margin-left: 8px;
 }
 
-.hnmore a, font {
+.hnmore a,
+font {
   color: var(--primary-color) !important;
 }
 
@@ -236,13 +284,15 @@ tr .athing {
   background-color: transparent;
 }
 
-.yclinks a, .yclinks, form {
+.yclinks a,
+.yclinks,
+form {
   font-family: var(--default-font) !important;
   color: var(--content-lower) !important;
   font-size: .9rem !important;
 }
 
-.comment .c00{
+.comment .c00 {
   color: var(--content-lower) !important;
   font-size: 1.1rem;
   line-height: 1.4rem;
@@ -257,7 +307,8 @@ tr .athing {
   color: var(--primary-color) !important;
 }
 
-.itemlist tbody, .itemlist {
+.itemlist tbody,
+.itemlist {
   width: 100% !important;
 }
 
@@ -271,7 +322,7 @@ tr .athing {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding: 0px !important;
+  /* padding: 0px !important; */
 }
 
 .comment-tree .votelinks {
